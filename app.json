@@ -1,12 +1,34 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/hot/hot",
+    "pages/my/my",
+    "pages/playlist/detail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "WYMusic",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/imgs/home_close.png",
+        "selectedIconPath": "assets/imgs/home.png"
+      },
+      {
+        "pagePath": "pages/hot/hot",
+        "iconPath": "assets/imgs/sig_close.png",
+        "selectedIconPath": "assets/imgs/sig.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "assets/imgs/my_close.png",
+        "selectedIconPath": "assets/imgs/my.png"
+      }
+    ]
   }
 }

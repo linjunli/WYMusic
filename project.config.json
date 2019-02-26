@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"nodeModules": true,
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
-	"appid": "wx7ee142948d2910f6",
+	"libVersion": "2.6.0",
+	"appid": "wx17ba364dd26067b5",
 	"projectname": "WXMusic",
 	"debugOptions": {
 		"hidedInDevtools": []

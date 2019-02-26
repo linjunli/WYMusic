@@ -7,15 +7,39 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    tabs: ["推荐", "歌手", "我的"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
+    playlist:[],
+    isLast:false,
   },
   onLoad: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.hostIp +"/index/apiGetInfo",
+      dataType:"json",
+      method:"post",
+      data:{
+        cat:"全部",
+      },
+      success: (result) => {
+        let data = result['data'];
+        let ret =data.ret,
+            msg = data.msg;
+        if (data && ret == 0) {
+          let playlist = data.play_list.playlists;
+          this.setData({
+            playlist: playlist,
+          })
+        }
+        console.log(result)
+      },
+      error:() => {
+        console.log("fatal error")
+      }      
+    });
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,6 +66,21 @@ Page({
         }
       })
     }
+  },
+  tabClick: function (e) {
+      this.setData({
+          sliderOffset: e.currentTarget.offsetLeft,
+          activeIndex: e.currentTarget.id
+      });
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  navigateTo: function(e) {
+
   },
   clickMe : function(e) {
     console.log(e);

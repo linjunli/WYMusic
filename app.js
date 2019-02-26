@@ -43,6 +43,7 @@ App({
     console.log("app error")
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    hostIp: "", // 填写自己的ip
   }
 })
